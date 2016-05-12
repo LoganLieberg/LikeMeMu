@@ -2,7 +2,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
-var data = require('./rooots/data');
+var bios = require('./rooots/bios');
+var adam = require('./Likes/adam');
 
 app.set('port', 3000);
 
@@ -12,7 +13,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 //routes
 
 //app.use('/data', data);
-
+app.use('/Likes/adam', adam);
+app.use('/bios', bios);
 //catch all
 app.get('/*', function(req, res) {
   console.log('request params', req.params);
